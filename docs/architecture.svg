@@ -1,0 +1,88 @@
+<svg viewBox="0 0 1160 700" xmlns="http://www.w3.org/2000/svg" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="1160" height="700" rx="16" fill="#0b1220"/>
+
+  <!-- header -->
+  <text x="40" y="56" font-size="30" font-weight="700" fill="#e2e8f0">Concord</text>
+  <text x="42" y="82" font-size="15" fill="#94a3b8">Payer Interoperability &amp; Prior Authorization Data Platform</text>
+  <rect x="888" y="34" width="236" height="34" rx="17" fill="none" stroke="#f59e0b" stroke-width="1.3"/>
+  <text x="1006" y="56" font-size="13" fill="#f59e0b" text-anchor="middle">Models CMS-0057-F compliance</text>
+  <line x1="40" y1="106" x2="1120" y2="106" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- arrows (drawn first, behind panels edges) -->
+  <line x1="226" y1="250" x2="255" y2="250" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="444" y1="250" x2="473" y2="250" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="459" y="238" font-size="10" fill="#64748b" text-anchor="middle">FLATTEN</text>
+  <line x1="662" y1="250" x2="691" y2="250" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="677" y="238" font-size="10" fill="#64748b" text-anchor="middle">model</text>
+  <line x1="880" y1="250" x2="909" y2="250" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="895" y="238" font-size="10" fill="#64748b" text-anchor="middle">serve</text>
+
+  <!-- SOURCES -->
+  <rect x="40" y="150" width="185" height="200" rx="12" fill="#0f1a2e" stroke="#334155" stroke-width="1.3"/>
+  <text x="56" y="178" font-size="13" font-weight="700" fill="#94a3b8" letter-spacing="1">SOURCES</text>
+  <text x="56" y="210" font-size="12.5" fill="#cbd5e1">Synthea FHIR R4</text>
+  <text x="56" y="238" font-size="12.5" fill="#cbd5e1">NPPES provider API</text>
+  <text x="56" y="266" font-size="12.5" fill="#cbd5e1">Synthetic X12 837/834</text>
+  <text x="56" y="294" font-size="12.5" fill="#cbd5e1">Synthetic PA feed</text>
+  <text x="56" y="330" font-size="11" fill="#64748b">synthetic / public</text>
+
+  <!-- RAW -->
+  <rect x="258" y="150" width="186" height="200" rx="12" fill="#0f1a2e" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="274" y="178" font-size="13" font-weight="700" fill="#38bdf8" letter-spacing="1">RAW</text>
+  <text x="274" y="210" font-size="12.5" fill="#cbd5e1">Stages + file formats</text>
+  <text x="274" y="238" font-size="12.5" fill="#cbd5e1">VARIANT tables</text>
+  <text x="274" y="266" font-size="12.5" fill="#cbd5e1">schema-on-read</text>
+  <text x="274" y="330" font-size="11" fill="#64748b">COPY INTO / Snowpipe</text>
+
+  <!-- STAGING -->
+  <rect x="476" y="150" width="186" height="200" rx="12" fill="#0f1a2e" stroke="#2dd4bf" stroke-width="1.5"/>
+  <text x="492" y="178" font-size="13" font-weight="700" fill="#2dd4bf" letter-spacing="1">STAGING</text>
+  <text x="492" y="210" font-size="12.5" fill="#cbd5e1">conformed models</text>
+  <text x="492" y="238" font-size="12.5" fill="#cbd5e1">claims · coverage</text>
+  <text x="492" y="266" font-size="12.5" fill="#cbd5e1">patient · provider</text>
+  <text x="492" y="330" font-size="11" fill="#64748b">typed · deduped</text>
+
+  <!-- MARTS -->
+  <rect x="694" y="150" width="186" height="200" rx="12" fill="#0f1a2e" stroke="#34d399" stroke-width="1.5"/>
+  <text x="710" y="178" font-size="13" font-weight="700" fill="#34d399" letter-spacing="1">MARTS</text>
+  <text x="710" y="210" font-size="12.5" fill="#cbd5e1">star schema</text>
+  <text x="710" y="238" font-size="12.5" fill="#cbd5e1">PA metrics mart</text>
+  <text x="710" y="266" font-size="12.5" fill="#cbd5e1">SCD2 dimensions</text>
+  <text x="710" y="330" font-size="11" fill="#64748b">facts + dimensions</text>
+
+  <!-- OUTPUTS -->
+  <rect x="912" y="150" width="208" height="200" rx="12" fill="#0f1a2e" stroke="#f59e0b" stroke-width="1.3"/>
+  <text x="928" y="178" font-size="13" font-weight="700" fill="#f59e0b" letter-spacing="1">SERVES</text>
+  <text x="928" y="208" font-size="12.5" fill="#cbd5e1">CMS FHIR APIs</text>
+  <text x="928" y="232" font-size="11.5" fill="#94a3b8">Patient · Provider Access</text>
+  <text x="928" y="254" font-size="11.5" fill="#94a3b8">Payer-to-Payer · Prior Auth</text>
+  <text x="928" y="292" font-size="12.5" fill="#cbd5e1">Streamlit PA dashboard</text>
+  <text x="928" y="330" font-size="11" fill="#64748b">compliance reporting</text>
+
+  <!-- cross-cutting band -->
+  <rect x="258" y="392" width="622" height="76" rx="12" fill="#111a2c" stroke="#334155" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <text x="274" y="414" font-size="11" fill="#64748b" letter-spacing="1.5">APPLIES ACROSS THE PIPELINE</text>
+  <circle cx="280" cy="444" r="4" fill="#a78bfa"/>
+  <text x="292" y="448" font-size="12.5" fill="#cbd5e1">Streams + Tasks · CDC</text>
+  <circle cx="480" cy="444" r="4" fill="#fb7185"/>
+  <text x="492" y="448" font-size="12.5" fill="#cbd5e1">Masking + Row-Access · PHI</text>
+  <circle cx="708" cy="444" r="4" fill="#38bdf8"/>
+  <text x="720" y="448" font-size="12.5" fill="#cbd5e1">dbt · SCD2 · tests · docs</text>
+
+  <!-- internal band -->
+  <rect x="258" y="484" width="622" height="46" rx="12" fill="#111a2c" stroke="#334155" stroke-width="1.2"/>
+  <circle cx="280" cy="507" r="4" fill="#64748b"/>
+  <text x="292" y="511" font-size="12.5" fill="#94a3b8">_INTERNAL — pipeline audit log · data-quality results  (observability)</text>
+
+  <!-- footer -->
+  <line x1="40" y1="588" x2="1120" y2="588" stroke="#1e293b" stroke-width="1"/>
+  <text x="40" y="616" font-size="12.5" fill="#94a3b8">Stack:  Snowflake (Enterprise) · Snowpark Python · dbt · Streams &amp; Tasks · Streamlit</text>
+  <text x="40" y="640" font-size="12" fill="#64748b">Medallion: RAW → STAGING → MARTS   ·   All data synthetic or public — contains no PHI</text>
+</svg>
