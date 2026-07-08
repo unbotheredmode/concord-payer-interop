@@ -31,13 +31,19 @@ behind each decision is as important as the code itself.
 
 ---
 
-## Phase 1 — RAW Layer (FHIR ingestion → VARIANT) 🚧
-- **Date:**
-- **What:**
-- **Decisions:**
-- **Issues:**
-- **Commit:**
-- **Credits used:**
+## Phase 1 — RAW Layer ✅
+**Date:** 2026-07-07
+**What:** File format (NDJSON), internal stage, 4 VARIANT tables, 
+COPY INTO loaded 500 patients / 2000 claims / 500 coverage / 400 PA records.
+LATERAL FLATTEN preview confirmed nested diagnosis arrays expand correctly.
+**Key decisions:**
+- STRIP_OUTER_ARRAY=FALSE — NDJSON not a JSON array
+- NULL_IF=('null') — optional fields like decision_date land as SQL NULL
+- ON_ERROR=ABORT_STATEMENT — partial loads worse than failed loads
+- OUTER=>TRUE on FLATTEN — keeps claims with missing diagnosis arrays
+- METADATA$FILENAME → source_file column for row-level lineage
+**Commit:** feat: Day 2 — RAW layer
+**Credits used:** ~2
 
 ---
 
