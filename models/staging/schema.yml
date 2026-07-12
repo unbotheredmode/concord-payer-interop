@@ -1,0 +1,61 @@
+version: 2
+
+models:
+  - name: stg_claims
+    description: "Conformed claims from RAW VARIANT — one row per claim"
+    columns:
+      - name: claim_id
+        description: "Unique claim identifier"
+        tests:
+          - not_null
+          - unique
+      - name: member_id
+        description: "Member this claim belongs to"
+        tests:
+          - not_null
+      - name: status
+        description: "Claim status"
+        tests:
+          - accepted_values:
+              values: ['active', 'cancelled', 'entered-in-error']
+      - name: billed_amount
+        description: "Amount billed by provider"
+        tests:
+          - not_null
+
+  - name: stg_patients
+    description: "Conformed member demographics from RAW VARIANT"
+    columns:
+      - name: member_id
+        tests:
+          - not_null
+          - unique
+      - name: gender
+        tests:
+          - accepted_values:
+              values: ['male', 'female', 'other', 'unknown']
+
+  - name: stg_coverage
+    description: "Member insurance coverage records"
+    columns:
+      - name: member_id
+        tests:
+          - not_null
+      - name: coverage_start
+        tests:
+          - not_null
+
+  - name: stg_prior_auth
+    description: "Prior authorization requests and decisions"
+    columns:
+      - name: pa_id
+        tests:
+          - not_null
+          - unique
+      - name: member_id
+        tests:
+          - not_null
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['approved', 'denied', 'pending', 'appealed']
