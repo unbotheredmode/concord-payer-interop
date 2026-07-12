@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: raw
+    database: CONCORD
+    schema: RAW
+    description: "Raw VARIANT tables — faithful landing zone for all source data"
+    tables:
+      - name: claims
+        description: "FHIR ExplanationOfBenefit-shaped claims, landed as VARIANT"
+        columns:
+          - name: raw_data
+            description: "Full JSON blob — one FHIR claim record per row"
+          - name: source_file
+            description: "Staged filename this row was loaded from"
+          - name: loaded_at
+            description: "Timestamp when COPY INTO landed this row"
+
+      - name: patients
+        description: "FHIR Patient-shaped member records, landed as VARIANT"
+        columns:
+          - name: raw_data
+            description: "Full JSON blob — one member record per row"
+
+      - name: coverage
+        description: "FHIR Coverage-shaped enrollment records, landed as VARIANT"
+        columns:
+          - name: raw_data
+            description: "Full JSON blob — one coverage record per row"
+
+      - name: prior_auth
+        description: "Prior authorization requests and decisions, landed as VARIANT"
+        columns:
+          - name: raw_data
+            description: "Full JSON blob — one PA record per row"

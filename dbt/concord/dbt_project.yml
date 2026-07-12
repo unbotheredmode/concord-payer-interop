@@ -1,0 +1,25 @@
+name: 'concord'
+version: '1.0.0'
+profile: 'concord'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  concord:
+    staging:
+      +materialized: table        # flatten runs once, stored as table
+      +schema: STAGING            # builds in CONCORD.STAGING
+    marts:
+      +materialized: table
+      +schema: MARTS              # builds in CONCORD.MARTS
+
+      
