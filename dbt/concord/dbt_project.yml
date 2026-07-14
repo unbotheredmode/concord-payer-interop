@@ -22,4 +22,8 @@ models:
       +materialized: table
       +schema: MARTS              # builds in CONCORD.MARTS
 
+seeds:
+  concord:
+    +schema: _INTERNAL    # loads into CONCORD._INTERNAL
+    +quote_columns: false
       
